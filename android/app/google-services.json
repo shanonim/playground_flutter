@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "441835716105",
+    "project_id": "playground-flutter-fa98a",
+    "storage_bucket": "playground-flutter-fa98a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:441835716105:android:91d9d70578d2cebd0902d8",
+        "android_client_info": {
+          "package_name": "com.yokacode.playground_flutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "441835716105-vk57rfjafcdenpnlg0q0id9mj191579v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyByQbHyf_OWDtCr0wZeettHCdpvOsB27_Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "441835716105-vk57rfjafcdenpnlg0q0id9mj191579v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
