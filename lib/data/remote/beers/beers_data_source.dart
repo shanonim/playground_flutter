@@ -1,3 +1,4 @@
+import 'package:dio/dio.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:playground_flutter/data/remote/app_dio.dart';
 import 'package:playground_flutter/data/remote/beers/beer.dart';
