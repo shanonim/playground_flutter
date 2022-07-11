@@ -1,8 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
-import 'package:playground_flutter/data/remote/beers/beer.dart';
-import 'package:playground_flutter/data/remote/result.dart';
 import 'package:playground_flutter/features/main/main_view_model.dart';
 import 'package:playground_flutter/firebase_options.dart';
 
@@ -33,8 +31,13 @@ class Home extends HookConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final mainViewModel = ref.read(mainViewModelProvider);
-    final Result<List<Beer>>? beers =
-        ref.watch(mainViewModelProvider.select((value) => value.beers));
+
+    final String? beerName = ref.watch(mainViewModelProvider
+        .select((value) => value.beers?.when(success: (data) {
+              return data.first.name;
+            }, failure: (e) {
+              return e.message;
+            })));
 
     final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
       onPrimary: Colors.black87,
@@ -58,13 +61,7 @@ class Home extends HookConsumerWidget {
               'Beer name:',
             ),
             Container(
-              child: beers == null
-                  ? const SizedBox()
-                  : beers.when(success: (data) {
-                      return Text(data.first.name);
-                    }, failure: (e) {
-                      return Text(e.message);
-                    }),
+              child: beerName == null ? const SizedBox() : Text(beerName),
             ),
             ElevatedButton(
               onPressed: () async => mainViewModel.fetchBeers(),
